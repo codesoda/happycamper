@@ -1,0 +1,151 @@
+
+form {
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+
+  input[type=text], textarea, select {
+    float: left;
+    clear: left;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 10px;
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid
+    rgba(0, 0, 0, .75);
+  }
+}
+
+.like, .unlike {
+  font-size: 11px;
+  font-weight: normal;
+}
+
+.user-list-checkin {
+  .icon-clock { margin: 0 !important; }
+}
+
+#place_checkins_count, #user_checkins_count {
+  position: absolute;
+  top: 6px;
+  right: 20px;
+
+  .icon-checkin {
+    position: relative;
+    top: 1px;
+  }
+}
+
+.checkin-item {
+
+  a {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  p {
+    text-shadow: 0 1px 2px rgba(255,255,255,0.25);
+    margin-bottom: 0;
+
+    &.desc {
+      color: #555;
+      display: block;
+      font-size: 13px;
+    }
+  }
+
+  .icon-clock {
+    margin-left: 4px;
+  }
+
+  time, .icon-clock {
+    color: #d2cdc9;
+    display: inline-block;
+    font-size: 12px;
+  }
+
+}
+
+#checkmein {
+  background: rgba(0,0,0,0.85);
+  display: none;
+  position: fixed;
+  top: 0; bottom: 0;
+  left: -10px; right: -10px;
+  z-index: 100;
+
+  .form-submit {
+    input {
+      width: 75%;
+      margin: 0;
+    }
+
+    .close-checkin {
+      width: 24%;
+      box-sizing: border-box;
+      float: left;
+      text-align: center;
+    }
+  }
+}
+
+#new_checkin {
+  margin: -10px auto 0;
+  max-width: 1024px;
+}
+
+#checkin_description {
+  height: 100px;
+  max-height: 400px;
+}
+
+#location-options {
+  position: relative;
+  height: 30px;
+  float: left;
+  clear: left;
+  width: 100%;
+  margin: 0 0 10px;
+}
+
+#checkin_place_id, #place_name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  -webkit-transition: all .3s ease-in-out;;
+  -webkit-transform: scaleY(-1);
+  z-index: 0;
+
+  &.active {
+    z-index: 10;
+    -webkit-transform: scaleY(1);
+  }
+}
+
+
+.form-submit {
+  input {
+    float: right;
+    background: -webkit-linear-gradient(top,hsl(34, 44%, 69%),hsl(34, 44%, 59%));
+    &:hover { background: -webkit-linear-gradient(top,hsl(34, 44%, 79%),hsl(34, 44%, 69%)); }
+    &:active { background: -webkit-linear-gradient(top,hsl(34, 44%, 59%),hsl(34, 44%, 69%)); }
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .form-submit .close-checkin {
+    width: 23%;
+  }
+
+  #checkin_description {
+    height: 95px !important;
+  }
+
+}
+
+

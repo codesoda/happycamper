@@ -1,0 +1,6 @@
+- content_for :sidebar do
+  = render 'shared/sidebar'
+%h1= @place
+%h4 Recent checkins
+- @place.checkins.limit(20).each do |checkin|
+  = render checkin

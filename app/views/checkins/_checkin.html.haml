@@ -1,0 +1,8 @@
+.checkin.list-item
+  %p
+    = link_to "@#{checkin.user}", checkin.user, :class => "user-link"
+    At
+    = link_to checkin.place, checkin.place, :class => "place-link"
+  - if checkin.description
+    %p.desc= checkin.description
+  %time{:datetime => checkin.created_at.strftime("%F %H:%M"), :class => "timeago" }= checkin.created_at.strftime("%a %l:%M%P")

@@ -1,0 +1,11 @@
+.sidebar
+  = link_to '#checkins', :class => 'nav-checkins' do
+    %i.icon-fire
+  = link_to '#places', :class => 'nav-places' do
+    %i.icon-sign
+  = link_to '#users', :class => 'nav-users' do
+    %i.icon-users
+  /= link_to session_path(1), :method => :delete, :class => 'nav-exit' do
+  /  %i.icon-exit
+  = link_to "#", :class => "show-checkin nav-checkin" do
+    %i.icon-checkin

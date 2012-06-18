@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %title HappyCamper
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, user-scalable=no'}
+    %meta{:name => 'apple-mobile-web-app-capable', :content => 'yes'}
+    %meta{:name => 'apple-mobile-web-app-status-bar-style', :content => 'white'}
+    %link{:rel => "apple-touch-startup-image", :href => "/assets/splash.png" }
+
+    %link{:rel => "shortcut icon", :href => "/assets/favicon.ico" }
+
+    %link{:rel => "apple-touch-icon-precomposed", :href => "/assets/apple-touch-icon.png" }
+
+    %link{ rel: "apple-touch-icon-precomposed", href: "/assets/apple-touch-icon-57x57.png", sizes: "57x57" }
+    %link{ rel: "apple-touch-icon-precomposed", href: "/assets/apple-touch-icon-72x72.png", sizes: "72x72" }
+    %link{ rel: "apple-touch-icon-precomposed", href: "/assets/apple-touch-icon-114x114.png", sizes: "114x114" }
+    %link{ rel: "apple-touch-icon-precomposed", href: "/assets/apple-touch-icon-144x144.png", sizes: "144x144" }
+
+    :javascript
+      var addToHomeConfig = {
+        startDelay: 500,
+        touchIcon: true,
+        lifespan: 10000
+      }
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+
+    = csrf_meta_tags
+  %body{ :id => "#{params[:controller]}" }
+
+    .container#container
+      = yield :sidebar
+      #content-wrapper
+        #content= yield
+      #checkmein
+        = form_for Checkin.new do |f|
+          .form-row
+            = f.text_area :description
+          #location-options.form-row
+            - options = Place.all.collect {|p| [ p.name, p.id ] } # options_from_collection_for_select(Place.all, 'id', 'name')
+            - options << ["--- Other", ""]
+            = f.select :place_id, options, { :prompt => "Where are you?" }, :class => 'active'
+            = text_field_tag :place_name, "", :placeholder => "Enter new location..."
+          .form-submit
+            = f.submit 'Checkin'
+            = link_to "Cancel", "#", :class => "close-checkin button"
+
+    = render "shared/templates"
+
+    :javascript
+      var Happy = {
+        Camper: #{ @current_user.to_json.html_safe }
+      };
+

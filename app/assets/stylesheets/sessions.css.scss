@@ -1,0 +1,35 @@
+#sessions {
+  background: url(bg-login.png) no-repeat top center;
+  background-size: 100%;
+  text-align: center;
+
+  #content {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  form {
+    background: url("/assets/logo.png") center 20% no-repeat;
+    background-size: 80%;
+    margin-top: 5%;
+    padding-top: 160px;
+    height: 250px;
+    box-sizing: border-box;
+
+    input {
+      width: 100%;
+    }
+
+  }
+}
+
+form {
+  .form-row {
+    margin-bottom: 20px;
+  }
+
+  .input-text {
+    border-radius: 5px;
+  }
+
+}

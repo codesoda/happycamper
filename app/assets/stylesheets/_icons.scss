@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'IcoMoon';
+  src: url('IcoMoon.eot');
+  src: url('IcoMoon.eot?#iefix') format('embedded-opentype'),
+    url('IcoMoon.svg#IcoMoon') format('svg'),
+    url('IcoMoon.woff') format('woff'),
+    url('IcoMoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'IcoMoon';
+  content: attr(data-icon);
+  speak: none;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: 'IcoMoon';
+  font-style: normal;
+  text-transform: none;
+  text-decoration: none;
+  speak: none;
+}
+
+.icon-home:before           { content: "\0021"; }
+.icon-users:before          { content: "\0022"; }
+.icon-sign:before           { content: "\0023"; }
+.icon-cog:before            { content: "\0024"; }
+.icon-checkin:before        { content: "\0025"; }
+.icon-camera:before         { content: "\0026"; }
+.icon-upload:before         { content: "\0027"; }
+.icon-clock:before          { content: "\0028"; }
+.icon-warning:before        { content: "\0029"; }
+.icon-spin:before           { content: "\002a"; }
+.icon-reload-CW:before      { content: "\002b"; }
+.icon-moon-fill:before      { content: "\002c"; }
+.icon-user:before           { content: "\002d"; }
+.icon-map:before            { content: "\002e"; }
+.icon-location:before       { content: "\002f"; }
+.icon-broadcast:before      { content: "\0030"; }
+.icon-tag:before            { content: "\0031"; }
+.icon-contact:before        { content: "\0032"; }
+.icon-fire:before           { content: "\0033"; }
+.icon-cancel:before         { content: "\0034"; }
+.icon-arrow:before          { content: "\0035"; }
+.icon-exit:before           { content: "\0036"; }
+.icon-pacman:before         { content: "\0037"; }
+.icon-mobile:before         { content: "\0038"; }
+.icon-mail:before           { content: "\0039"; }
+.icon-leaf:before           { content: "\003a"; }
+.icon-fire-2:before         { content: "\003b"; }
+.icon-guitar:before         { content: "\003c"; }
+.icon-dice:before           { content: "\003d"; }
+.icon-gamepad:before        { content: "\003e"; }
+.icon-images:before         { content: "\003f"; }
+.icon-movie:before          { content: "\0040"; }
+.icon-briefcase:before      { content: "\0041"; }
+.icon-brain:before          { content: "\0042"; }
+.icon-cone:before           { content: "\0043"; }
+.icon-balloon:before        { content: "\0044"; }
+.icon-happy:before          { content: "\0045"; }
+.icon-smiley:before         { content: "\0046"; }
+.icon-neutral:before        { content: "\0047"; }
+.icon-sad:before            { content: "\0048"; }
+.icon-shocked:before        { content: "\0049"; }
+.icon-reading:before        { content: "\004a"; }
+.icon-tree:before           { content: "\004b"; }
+.icon-coffee:before         { content: "\004c"; }
+.icon-trophy:before         { content: "\004d"; }
+.icon-info-circle:before    { content: "\004e"; }
+.icon-alert:before          { content: "\004f"; }
+.icon-star:before           { content: "\0050"; }
+.icon-star-2:before         { content: "\0051"; }
+.icon-search:before         { content: "\0052"; }
+.icon-calendar:before       { content: "\0053"; }
+.icon-flag:before           { content: "\0054"; }
+.icon-thumbs-up:before      { content: "\0055"; }
+.icon-thumbs-down:before    { content: "\0056"; }
+.icon-heart:before          { content: "\0057"; }
+.icon-heart-2:before        { content: "\0058"; }

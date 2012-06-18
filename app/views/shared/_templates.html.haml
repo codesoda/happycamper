@@ -1,0 +1,101 @@
+%script{:id => "tpl-checkin-view", :type => "text/template"}
+  %p
+    = link_to "@<%= user.username %>".html_safe, "#users/<%= user.username %>".html_safe, :class => "user-link"
+    <% if (place_id && place_id > 0) { %>
+    At
+    = link_to "<%= place.name %>".html_safe, "#places/<%= place_id %>".html_safe, :class => "place-link"
+    <% } %>
+  <% if (description) { %>
+  %p.desc
+    <%= linkify(description) %>
+  <% } %>
+
+  :plain
+    <time datetime="<%= created_at %>" class="timeago"><%= created_at %></time>
+  %span= link_to "Unlike", "#", :class => 'unlike'
+  %span= link_to "Like", "#".html_safe, :class => 'like'
+
+%script{:id => "tpl-place-view", :type => "text/template"}
+  = link_to "#places/<%= id %>".html_safe do
+    <%= name %>
+  %span.checkins_count <%= checkins_count || 0 %>
+
+%script{:id => "tpl-top-places-view", :type => "text/template"}
+  %h1 Happiest Places
+  .top-places
+    <% _.each(models, function(place) { %>
+    .place-item
+      = link_to "#places/<%= place.get('id') %>".html_safe do
+        %span.place_list_checkins_count.checkins_count
+          %i.icon-checkin
+          <%= place.get('checkins_count') || 0 %>
+        %span.name <%= place.get('name') %>
+    <% }) %>
+
+%script{:id => "tpl-user-view", :type => "text/template"}
+  = link_to "#users/<%= username %>".html_safe do
+    @<%= username %>
+  %span.checkins_count <%= checkins_count || 0 %>
+
+%script{:id => "tpl-top-users-view", :type => "text/template"}
+  %h1 Happiest Campers
+  .top-users
+    <% _.each(models, function(user) { %>
+    .user-item
+      = link_to "#users/<%= user.get('username') %>".html_safe do
+        %span.user_list_checkins_count.checkins_count
+          %i.icon-checkin
+          <%= user.get('checkins_count') || 0 %>
+        %span.username @<%= user.get('username') %>
+    <% }) %>
+
+%script{:id => "tpl-user-show-view", :type => "text/template"}
+  %h1
+    <%= username %>
+  #user_checkins_count.checkins_count
+    %i.icon-checkin
+    <%= checkins_count || 0 %>
+  .user-checkins
+    <% _.each(checkins, function(checkin) { %>
+
+    .checkin-item.user-list-checkin
+      <% if (checkin.place || checkin.user_id != id) { %>
+      %p
+        <% if (checkin.user_id != id) { %>
+        Mentioned by
+        = link_to "@<%= checkin.user.username %>".html_safe, "#users/<%= checkin.user.username %>".html_safe
+        <% } %>
+        <% if (checkin.place) { %>
+        At
+        = link_to "<%= checkin.place.name %>".html_safe, "#places/<%= checkin.place_id %>".html_safe, :class => "place-link"
+        <% } %>
+      <% } %>
+
+      <% if (checkin.description) { %>
+      %p.desc
+        <%= linkify(checkin.description) %>
+      <% } %>
+      %p
+        :plain
+          <i class="icon-clock"></i>
+          <time datetime="<%= checkin.created_at %>" class="timeago"><%= checkin.created_at %></time>
+
+    <% }) %>
+
+%script{:id => "tpl-place-show-view", :type => "text/template"}
+  %h1 <%= name %>
+  #place_checkins_count.checkins_count
+    %i.icon-checkin
+    <%= checkins_count || 0 %>
+  .place-checkins
+    <% _.each(checkins, function(checkin) { %>
+    .checkin-item
+      %p
+        = link_to "@<%= checkin.user.username %>".html_safe, "#users/<%= checkin.user.username %>".html_safe, :class => "user-link"
+        :plain
+          <time datetime="<%= checkin.created_at %>" class="timeago"><%= checkin.created_at %></time>
+      <% if (checkin.description) { %>
+      %p.desc
+        <%= linkify(checkin.description) %>
+      <% } %>
+    <% }) %>

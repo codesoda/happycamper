@@ -1,0 +1,8 @@
+Place.find_or_create_by_name(:name => 'Main hall')
+Place.find_or_create_by_name(:name => 'Food hall')
+Place.find_or_create_by_name(:name => 'Farm house')
+Place.find_or_create_by_name(:name => 'Meeting room 1')
+Place.find_or_create_by_name(:name => 'Meeting room 2')
+Place.find_or_create_by_name(:name => 'Ping pong')
+Place.find_or_create_by_name(:name => 'Main hall fridge')
+Place.find_or_create_by_name(:name => 'Farm house fridge')

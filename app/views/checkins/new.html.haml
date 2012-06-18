@@ -1,0 +1,4 @@
+= form_for @checkin do |f|
+  = f.select :place_id, { :collection => options_from_collection_for_select(Place.all, 'id', 'name') }, :include_blank => true
+  = f.text_area :description
+  = f.submit 'Checkin'

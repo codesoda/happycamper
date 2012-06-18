@@ -1,0 +1,6 @@
+= form_for :session, :url => { :action => :create } do |f|
+  .form-row
+    = f.text_field :username, :placeholder => (flash[:error] || '@twitter'), :class => "single input-text"
+  .form-submit
+    = f.submit 'Login / Join'
+
